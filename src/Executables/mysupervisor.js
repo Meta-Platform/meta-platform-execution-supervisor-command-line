@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
 const process     = require("process")
-const { resolve } = require("path")
 const yargs       = require("yargs/yargs")
 const { hideBin } = require("yargs/helpers")
-
-require("dotenv").config({path: resolve(__dirname, "../..", ".env")})
 
 const ListSocketsCommand                  = require(`../Commands/ListSockets.command`)
 const GetExecutionStatusCommand           = require(`../Commands/GetExecutionStatus.command`)
