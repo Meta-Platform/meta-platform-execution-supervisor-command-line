@@ -9,7 +9,7 @@
   "author": "Kaio Cezar <kadisk.shark@gmail.com>",
   "dependencies": {
     "colors": "^1.4.0",
-    "dotenv": "^16.0.3",
+    "pkg": "^5.8.1",
     "yargs": "^17.7.2",
     "meta-platform-cli-script-loader-library":"git+https://github.com/Meta-Platform/meta-platform-cli-script-loader-library.git"
   }
