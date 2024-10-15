@@ -1,8 +1,8 @@
-# Execution Supervisor Command-line
+# Meta Platform Execution Supervisor
 
-Esse aplicativo é usado para analise e supervição de aplicações compátiveis com o Ecosistema Meta Plaform ou seja aplicações executando com o package-executor, as aplicações executadas com ele pode expor o um socket onde o supervisor consegue se comunicar com a aplicação em execução
+Este aplicativo é utilizado para análise e supervisão de aplicações compatíveis com o Ecossistema Meta Platform, ou seja, aplicações que são executadas pelo *package-executor*. As aplicações controladas por ele podem expor um socket de comunicação, permitindo que o supervisor interaja diretamente com a aplicação em execução.
 
-## Configuração do projeto
+## Como usar a release do projeto
 
 Para começar a usar o Daemon Management Command-line do Meta Platform no seu sistema, siga os passos abaixo:
 
@@ -16,29 +16,43 @@ npm link
 
 Após a instalação, você será capaz de acessar os comandos do ***Execution Supervisor*** em qualquer lugar no seu sistema.
 
-## Comandos Disponíveis
+## Gerenciamento de ums instância do package-executor
 
 A ferramenta oferece uma série de comandos para gerenciar diversos aspectos da aplicação. Abaixo, você encontrará uma descrição detalhada de cada comando e exemplos de uso.
-`FALTA O EXEMPLO DE USO`
 
-### Gerenciamento de um instancia do package-executor
-
+### Listar sockets
+Lista todos os sockets de todas as instâncias em execução
 ```bash
-# listar todos os sockets
 mysupervisor sockets
+```
 
-# Mostrar status do execução do pacote
-mysupervisor status --socket [SOCKET_FILENAME]
+### Mostrar status
+ Mostra status de um instância em execução
+```bash
+mysupervisor status --socket "<SOCKET_FILENAME>"
+```
 
-# Listar Tarefas no Task Executor do Daemon**
-mysupervisor tasks --socket [SOCKET_FILENAME]
+### Listar tarefas
+Lista todas as tarefas de um instância em execução
+```bash
+mysupervisor tasks --socket "<SOCKET_FILENAME>"
+```
 
-# Visualiza o log do daemon
-mysupervisor log --socket [SOCKET_FILENAME]
+### Visualizar logs
+Fica exibindo o logs de uma instância em execução
+```bash
+mysupervisor log --socket "<SOCKET_FILENAME>"
+```
 
-# Interromper o Daemon do Ecossistema
-mysupervisor kill --socket [SOCKET_FILENAME]
+### Matar Execução
+Mata a execução de uma instância.
+```bash
+mysupervisor kill --socket "<SOCKET_FILENAME>"
+```
 
+### Detalhar informações de tarefas
+Mostra informações detalhada de uma tarefas específica
+```bash
 # Obter Informações sobre uma Tarefa Específica do Daemon  
-mysupervisor show task [TASK_ID] --socket [SOCKET_FILENAME]
+mysupervisor show task "<TASK_ID>" --socket "<SOCKET_FILENAME>"
 ```
