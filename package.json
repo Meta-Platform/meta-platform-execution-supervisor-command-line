@@ -1,13 +1,13 @@
 {
   "name": "meta-platform-execution-supervisor-command-line",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ferramenta para comunicação, inicialização, reinicialização e gestão abrangente de um processo iniciado pelo binário pakage-executor.",
   "bin": {
     "mysupervisor": "./src/Executables/mysupervisor.js",
     "mysupervisor-dbg": "./src/Executables/mysupervisor-dbg.js"
   },
   "scripts": {
-    "build": "pkg ./src/Executables/mysupervisor.js --targets node18-linux-x64 --output meta-platform-execution-supervisor-command-line-0.0.4-alpha-linux-x64"
+    "build": "pkg ./src/Executables/mysupervisor.js --targets node18-linux-x64 --output meta-platform-execution-supervisor-command-line-0.0.5-alpha-linux-x64"
   },
   "author": "Kaio Cezar <kadisk.shark@gmail.com>",
   "dependencies": {

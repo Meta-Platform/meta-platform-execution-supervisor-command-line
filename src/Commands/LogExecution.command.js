@@ -1,4 +1,5 @@
 const EventEmitter = require('events')
+const path = require("path")
 
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
 const APP_PARAMS = require("../Configs/app-params-dev.json")
@@ -26,8 +27,10 @@ const LogExecutionCommand = async ({socket}) => {
 
     const loggerEmitter = new EventEmitter()
 
-    const _OpenLogStream = async (socket, loggerEmitter) => {
-        const rpcClient = await CreateCommunicationInterface(socket)
+    const socketFilePath = path.resolve(APP_PARAMS.SUPERVISOR_SOCKETS_DIRPATH, socket)
+
+    const _OpenLogStream = async (socketFilePath, loggerEmitter) => {
+        const rpcClient = await CreateCommunicationInterface(socketFilePath)
         await TryConnectLogStreaming({
             loggerEmitter,
             client: rpcClient,
@@ -41,7 +44,7 @@ const LogExecutionCommand = async ({socket}) => {
         console.log(await FormatterDataLog(dataLog)))
 
     try {
-        await _OpenLogStream(socket, loggerEmitter)
+        await _OpenLogStream(socketFilePath, loggerEmitter)
     } catch (e) {
         loggerEmitter
             && loggerEmitter.emit("log", { sourceName: "execution-supervisor", type: "warning", message: e })

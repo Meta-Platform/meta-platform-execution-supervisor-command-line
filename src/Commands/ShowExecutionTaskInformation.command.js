@@ -1,3 +1,5 @@
+const path = require("path")
+
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
 const APP_PARAMS = require("../Configs/app-params-dev.json")
 const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
@@ -22,7 +24,9 @@ const ShowExecutionTaskInformationCommand = async ({taskId, socket}) => {
     const RenderAgentLinkRulesTaskTable     = LoaderScript("supervisor.lib/src/RenderAgentLinkRulesTaskTable")
     const RenderActivationRulesTaskTable    = LoaderScript("supervisor.lib/src/RenderActivationRulesTaskTable")
 
-    const daemonClient = await CreateCommunicationInterface(socket)
+    const socketFilePath = path.resolve(APP_PARAMS.SUPERVISOR_SOCKETS_DIRPATH, socket)
+
+    const daemonClient = await CreateCommunicationInterface(socketFilePath)
     const task = await daemonClient.GetTask(taskId)
     await RenderGeneralInformationTaskTable(task)
     await RenderStaticParametersTaskTable(task.staticParameters)

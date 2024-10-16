@@ -1,4 +1,5 @@
 const EventEmitter = require('events')
+const path = require("path")
 
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
 const APP_PARAMS = require("../Configs/app-params-dev.json")
@@ -25,7 +26,8 @@ const KillExecutionCommand = async ({socket}) => {
 		console.log(await FormatterDataLog(dataLog)))
 
 	try {
-		const daemonClient = await CreateCommunicationInterface(socket)
+		const socketFilePath = path.resolve(APP_PARAMS.SUPERVISOR_SOCKETS_DIRPATH, socket)
+		const daemonClient = await CreateCommunicationInterface(socketFilePath)
 		daemonClient.Kill()
 		loggerEmitter 
             && loggerEmitter.emit("log", {sourceName: "execution-supervisor", type:"info", message: `Ecosystem Daemon foi terminado!`})

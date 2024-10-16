@@ -1,3 +1,5 @@
+const path = require("path")
+
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
 const APP_PARAMS = require("../Configs/app-params-dev.json")
 const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
@@ -18,7 +20,8 @@ const GetExecutionStatusCommand = async ({socket}) => {
 	const CreateCommunicationInterface = LoaderScript("supervisor.lib/src/CreateCommunicationInterface")
 
 	try{
-		const client = await CreateCommunicationInterface(socket)
+		const socketFilePath = path.resolve(APP_PARAMS.SUPERVISOR_SOCKETS_DIRPATH, socket)
+		const client = await CreateCommunicationInterface(socketFilePath)
 		const executionStatus = await client.GetStatus()
 		console.log(`Status da execução [${executionStatus}]`)
 	}catch(e){

@@ -1,3 +1,5 @@
+const path = require("path")
+
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
 const APP_PARAMS = require("../Configs/app-params-dev.json")
 const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
@@ -19,7 +21,9 @@ const ListRunningTasksCommand = async ({socket}) => {
 
     const MountTaskTable = LoaderScript("supervisor.lib/src/MountTaskTable")
 
-    const daemonClient = await CreateCommunicationInterface(socket)
+    const socketFilePath = path.resolve(APP_PARAMS.SUPERVISOR_SOCKETS_DIRPATH, socket)
+
+    const daemonClient = await CreateCommunicationInterface(socketFilePath)
     const taskList = await daemonClient.ListTasks()
     const table = await MountTaskTable(taskList, LoaderScript)
     console.log(table.toString())
