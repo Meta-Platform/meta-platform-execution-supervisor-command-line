@@ -5,14 +5,14 @@ Este aplicativo é utilizado para análise e supervisão de aplicações compat�
 ## Como usar a release do projeto
 A versão binária mais recente do **Meta Platform Execution Supervisor** pode ser encontrada no link abaixo:
 
-[Meta Platform Execution Supervisor CLI - versão 0.0.3](https://github.com/Meta-Platform/meta-platform-execution-supervisor-command-line/releases/download/0.0.3/meta-platform-execution-supervisor-command-line-0.0.3-preview-linux-x64)
+[Meta Platform Execution Supervisor CLI - versão 0.0.4](https://github.com/Meta-Platform/meta-platform-execution-supervisor-command-line/releases/download/0.0.4/meta-platform-execution-supervisor-command-line-0.0.4-preview-linux-x64)
 
 Esse binário funciona com o comando `mysupervisor`. Veja abaixo como fazer o download e utilizar os comandos disponíveis:
 
 ### Como baixar e usar a release
 1. Faça o download do binário:
    ```bash
-   wget https://github.com/Meta-Platform/meta-platform-platform-execution-command-line/releases/download/0.0.3/meta-platform-platform-execution-command-line-0.0.3-preview-linux-x64 -O mysupervisor
+   wget https://github.com/Meta-Platform/meta-platform-platform-execution-command-line/releases/download/0.0.4/meta-platform-platform-execution-command-line-0.0.4-preview-linux-x64 -O mysupervisor
    ```
 
 2. Torne o binário executável:
